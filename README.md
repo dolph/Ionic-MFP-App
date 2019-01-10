@@ -34,15 +34,15 @@ and returns it to the mobile app.
 13. Other users who click on refresh button on the home page (and those who log in afresh) are shown the updated list of problem reports.
 
 ## Included Components
-* [Cloudant NoSQL DB](https://console.ng.bluemix.net/catalog/services/cloudant-nosql-db): A fully managed data layer designed for modern web and mobile applications that leverages a flexible JSON schema.
-* [Cloud Object Storage](https://console.bluemix.net/catalog/infrastructure/cloud-object-storage): A highly scalable cloud storage service, designed for high durability, resiliency and security.
-* [Mobile Foundation](https://console.bluemix.net/catalog/services/mobile-foundation): A scalable mobile access gateway powered by the market-leading IBM Mobile Foundation Technology. The service offers a comprehensive set of mobile backend capabilities such as, App life cycle, Push, Analytics, Feature Toggle, Security and Authentication and offline synch. 
+* [Cloudant NoSQL DB](https://cloud.ibm.com/catalog/services/cloudant): A fully managed data layer designed for modern web and mobile applications that leverages a flexible JSON schema.
+* [Cloud Object Storage](https://cloud.ibm.com/catalog/services/cloud-object-storage): A highly scalable cloud storage service, designed for high durability, resiliency and security.
+* [Mobile Foundation](https://cloud.ibm.com/catalog/services/mobile-foundation): A scalable mobile access gateway powered by the market-leading IBM Mobile Foundation Technology. The service offers a comprehensive set of mobile backend capabilities such as, App life cycle, Push, Analytics, Feature Toggle, Security and Authentication and offline synch. 
 
 ## Featured Technologies
 * [Mobile](https://mobilefirstplatform.ibmcloud.com/): Systems of engagement are increasingly using mobile technology as the platform for delivery.
 
 # Watch the Video
-[![](http://img.youtube.com/vi/SjM3aVRvGWQ/0.jpg)](https://youtu.be/SjM3aVRvGWQ)
+[![](https://img.youtube.com/vi/SjM3aVRvGWQ/0.jpg)](https://youtu.be/SjM3aVRvGWQ)
 
 # Steps
 1. [Setup Ionic and MFP CLI](#step-1-setup-ionic-and-mfp-cli)
@@ -143,7 +143,7 @@ apm install atom-typescript
 
 ### 2.1 Create Cloudant database
 
-* Log in to [IBM Cloud Dashboard](https://console.bluemix.net/) and create [*Cloudant NoSQL DB*](https://console.bluemix.net/catalog/services/cloudant-nosql-db) service.
+* Log in to [IBM Cloud Dashboard](https://cloud.ibm.com/) and create [*Cloudant NoSQL DB*](https://cloud.ibm.com/catalog/services/cloudant) service.
 * From the welcome page of Cloudant service that you just created, launch the Cloudant Dashboard.
 * In the Cloudant Dashboard, click on `Databases`.
 * Click on `Create Database`. Specify name of database as `myward` as shown below. Click `Create`.
@@ -196,7 +196,7 @@ The `myward` database should now list the six documents as shown below under `Ta
 
 ### 3.1 Create IBM Cloud Object Storage
 
-* In the [IBM Cloud Dashboard](https://console.bluemix.net/), click on `Catalog` and select [*Object Storage*](https://console.bluemix.net/catalog/infrastructure/cloud-object-storage) service under `Infrastructure` -> `Storage`. Click on `Create` as shown below.
+* In the [IBM Cloud Dashboard](https://cloud.ibm.com/), click on `Catalog` and select [*Object Storage*](https://cloud.ibm.com/catalog/services/cloud-object-storage) service under `Infrastructure` -> `Storage`. Click on `Create` as shown below.
 
   <img src="doc/source/images/COS_CreateService.png" alt="Create IBM Cloud Object Storage service" width="800" border="10" />
 
@@ -211,7 +211,7 @@ The `myward` database should now list the six documents as shown below under `Ta
 ### 3.2 Create Service ID and API Key for accessing objects
 
 * Create Service ID
-  - In a separate browser tab/window, launch the *IBM Cloud Identity & Access Management* dashboard using URL https://console.bluemix.net/iam/. 
+  - In a separate browser tab/window, launch the *IBM Cloud Identity & Access Management* dashboard using URL https://cloud.ibm.com/iam/. 
   - In case you have multiple IBM Cloud accounts, then select the target Account, Region, Organization and Space.
   - Under `Identity & Access` (on the left side of the page), select `Service IDs` and click `Create`. Give a name and description, and click `Create`.
   - Make a note of the Service ID as shown below.
@@ -236,7 +236,7 @@ Under `Access policies`, you should see the `Writer` role for your bucket.
 
 ## Step 4. Create Mobile Foundation service and configure MFP CLI
 
-* In the [IBM Cloud Dashboard](https://console.bluemix.net/), click on `Catalog` and select [Mobile Foundation](https://console.bluemix.net/catalog/services/mobile-foundation) service under `Platform` -> `Mobile`. Click on `Create` as shown below.
+* In the [IBM Cloud Dashboard](https://cloud.ibm.com/), click on `Catalog` and select [Mobile Foundation](https://cloud.ibm.com/catalog/services/mobile-foundation) service under `Platform` -> `Mobile`. Click on `Create` as shown below.
 
   <img src="doc/source/images/CreateMobileFoundationService.png" alt="Create IBM Mobile Foundation service" width="800" border="10" />
 
@@ -318,7 +318,7 @@ Open `MobileFoundationAdapters/MyWardData/src/main/adapter-resources/adapter.xml
 Open `MobileFoundationAdapters/MyWardData/src/main/adapter-resources/adapter.xml` and update the following properties to point to the Cloud Object Storage created in [Step 3](#step-3-create-ibm-cloud-object-storage-service-and-populate-it-with-sample-data).
   * Specify value for `bucketName` as created in [Step 3.1](#31-create-ibm-cloud-object-storage). 
   * Specify `serviceId` and `apiKey` created in [Step 3.2](#32-create-service-id-and-api-key-for-accessing-objects).
-  * While creating the bucket in [Step 3.1](#31-create-ibm-cloud-object-storage), if you selected a different Location/Resiliency, then update the `endpointURL` as per the specification in https://console.bluemix.net/docs/services/cloud-object-storage/basics/endpoints.html#select-regions-and-endpoints.
+  * While creating the bucket in [Step 3.1](#31-create-ibm-cloud-object-storage), if you selected a different Location/Resiliency, then update the `endpointURL` as per the specification in https://cloud.ibm.com/docs/services/cloud-object-storage/basics/endpoints.html#select-regions-and-endpoints.
 
 <pre><code>
 &lt;mfp:adapter name="MyWardData" ...&gt;
@@ -360,7 +360,7 @@ $ mfpdev adapter deploy
 ### 6.2 Launch MFP dashboard and verify adapter configurations
 
 Launch MFP Dashboard as below:
-  * In the [IBM Cloud dashboard](https://console.bluemix.net/dashboard/), under `Cloud Foundry Services`, click on the `Mobile Foundation` service you created in [Step 4](#step-4-create-mobile-foundation-service-and-configure-mfp-cli). The service overview page that gets shown, will have the MFP dashboard embedded within it. You can also open the MFP dashboard in a separate browser tab by appending `/mfpconsole` to the *url* mentioned in [Step 4](#step-4-create-mobile-foundation-service-and-configure-mfp-cli).
+  * In the [IBM Cloud dashboard](https://cloud.ibm.com/dashboard/), under `Cloud Foundry Services`, click on the `Mobile Foundation` service you created in [Step 4](#step-4-create-mobile-foundation-service-and-configure-mfp-cli). The service overview page that gets shown, will have the MFP dashboard embedded within it. You can also open the MFP dashboard in a separate browser tab by appending `/mfpconsole` to the *url* mentioned in [Step 4](#step-4-create-mobile-foundation-service-and-configure-mfp-cli).
   * Inside the MFP dashboard, in the list on the left, you will see the `MyWardData` and `UserLogin` adapters listed.
 
 Verify MFP Adapter configuration as below:
@@ -491,7 +491,7 @@ $ cd ../IonicMobileApp
 $ ionic cordova build android
 ```
 
-  Note: In case the Cordova build fails due to missing `ANDROID_HOME` and `JAVA_HOME` environment variables, then set those environment variables as per instructions in https://cordova.apache.org/docs/en/latest/guide/platforms/android/#setting-environment-variables. `ANDROID_HOME` should be set to the `Android SDK Location` that you noted in [Step 7.1](#71-install-android-studio-and-android-sdk-platform). Command `/usr/libexec/java_home` returns the value to be used for setting `JAVA_HOME` on [macOS](http://mattshomepage.com/articles/2016/May/22/java_home_mac_os_x/). On other platforms you could run `java -XshowSettings:properties 2>&1 | grep 'java.home'` as mentioned [here](http://sbndev.astro.umd.edu/wiki/Finding_and_Setting_JAVA_HOME#Sample_Perl_Script:_java_home).
+  Note: In case the Cordova build fails due to missing `ANDROID_HOME` and `JAVA_HOME` environment variables, then set those environment variables as per instructions in https://cordova.apache.org/docs/en/latest/guide/platforms/android/#setting-environment-variables. `ANDROID_HOME` should be set to the `Android SDK Location` that you noted in [Step 7.1](#71-install-android-studio-and-android-sdk-platform). Command `/usr/libexec/java_home` returns the value to be used for setting `JAVA_HOME` on [macOS](https://mattshomepage.com/articles/2016/May/22/java_home_mac_os_x/). On other platforms you could run `java -XshowSettings:properties 2>&1 | grep 'java.home'` as mentioned [here](http://sbndev.astro.umd.edu/wiki/Finding_and_Setting_JAVA_HOME#Sample_Perl_Script:_java_home).
 
 * Run application on Android device
 ```
@@ -609,18 +609,18 @@ Please see [troubleshooting guide](TROUBLESHOOTING.md) for solutions to some com
 
 # References
 * [Speeding up development of your enterprise mobile apps using open source technologies and cloud services](https://developer.ibm.com/code/2018/02/08/speeding-development-enterprise-mobile-apps-using-open-source-technologies-cloud-services/)
-* [MobileFirst Foundation 8.0 Developer Labs](http://mobilefirstplatform.ibmcloud.com/labs/developers/8.0/intro/)
+* [MobileFirst Foundation 8.0 Developer Labs](https://mobilefirstplatform.ibmcloud.com/labs/developers/8.0/intro/)
 * Ionic 2 quick tutorials:
-  - [10 Minutes with Ionic 2: Hello World](http://blog.ionic.io/10-minutes-with-ionic-2-hello-world/)
-  - [10 Minutes with Ionic 2: Adding Pages and Navigation](http://blog.ionic.io/10-minutes-with-ionic-2-adding-pages-and-navigation/)
-  - [10 Minutes with Ionic 2: Calling an API](http://blog.ionic.io/10-minutes-with-ionic-2-calling-an-api/)
-  - [10 Minutes with Ionic 2: Using the Camera with Ionic Native](http://blog.ionic.io/10-minutes-with-ionic-2-using-the-camera-with-ionic-native/)
+  - [10 Minutes with Ionic 2: Hello World](https://blog.ionicframework.com/10-minutes-with-ionic-2-hello-world/)
+  - [10 Minutes with Ionic 2: Adding Pages and Navigation](https://blog.ionicframework.com/10-minutes-with-ionic-2-adding-pages-and-navigation/)
+  - [10 Minutes with Ionic 2: Calling an API](https://blog.ionicframework.com/10-minutes-with-ionic-2-calling-an-api/)
+  - [10 Minutes with Ionic 2: Using the Camera with Ionic Native](https://blog.ionicframework.com/10-minutes-with-ionic-2-using-the-camera-with-ionic-native/)
 * [What Does Ionic 3 Mean for Ionic 2?](https://www.joshmorony.com/what-does-ionic-3-mean-for-ionic-2/)
 * [Dealing with Asynchronous Code in Ionic](https://www.joshmorony.com/dealing-with-asynchronous-code-in-ionic/)
 * [Understanding Zones and Change Detection in Ionic 2 & Angular 2](https://www.joshmorony.com/understanding-zones-and-change-detection-in-ionic-2-angular-2/)
 * [Basic Security for Ionic & Cordova Applications](https://www.joshmorony.com/basic-security-for-ionic-cordova-applications/)
 
 # License
-This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](http://www.apache.org/licenses/LICENSE-2.0.txt).
+This code pattern is licensed under the Apache Software License, Version 2.  Separate third party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1 (DCO)](https://developercertificate.org/) and the [Apache Software License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
 
-[Apache Software License (ASL) FAQ](http://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
+[Apache Software License (ASL) FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
